@@ -9,20 +9,15 @@ jobs:
   build:
     strategy:
       matrix:
-        boost_version: [1.79.0,1.80.0]
-        abi: [armeabi-v7a,arm64-v8a,x86,x86_64]
-        os: [ubuntu-latest,macos-latest]
+        boost_version: [1.70.0]
+        abi: [armeabi-v7a,arm64-v8a]
+        os: [ubuntu-latest]
         include:
           # includes a new variable of 'variation' for each host os
           - os: ubuntu-latest
             variation: linux
-          - os: macos-latest
-            variation: mac
-          # specify ndk version for each boost version
-          - boost_version: 1.79.0
-            ndk_version: 25.0.8775105
-          - boost_version: 1.80.0
-            ndk_version: 25.1.8937393
+          - boost_version: 1.70.0
+            ndk_version: 16.1.4479499
       fail-fast: false
 
     runs-on: ${{ matrix.os }}
